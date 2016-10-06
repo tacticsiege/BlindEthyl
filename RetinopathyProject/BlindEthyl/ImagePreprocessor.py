@@ -97,20 +97,20 @@ def scale_fill_image(image, final_width=512, final_height=512, verbose=False):
                       interpolation=cv2.INTER_AREA)
 
 
+def transform(image):
+    # normalize image to help find bounding box
+    output = normalize_color_hist(image)
+    box = find_bounding_box(output)
+    # crop original image and normalize at the end
+    output = crop_image(image, box)
+    output = scale_fill_image(output)
+    output = normalize_color_hist(output)
+    return output
+
+
 class ImagePreprocessor(object):
     def __init__(self):
-        print 'creating Image Preprocessor'
-
-    @staticmethod
-    def transform(image):
-        # normalize image to help find bounding box
-        output = normalize_color_hist(image)
-        box = find_bounding_box(output)
-        # crop original image and normalize at the end
-        output = crop_image(image, box)
-        output = scale_fill_image(output)
-        output = normalize_color_hist(output)
-        return output
+        print 'Creating Image Preprocessor'
 
     def process_file(self, path, filename, out_path, verbose=False):
         img = cv2.imread(join(path, filename))
