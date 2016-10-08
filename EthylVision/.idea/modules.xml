@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/EthylVision.iml" filepath="$PROJECT_DIR$/.idea/EthylVision.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/RetinopathyProject.iml" filepath="$PROJECT_DIR$/.idea/RetinopathyProject.iml" />
     </modules>
   </component>
